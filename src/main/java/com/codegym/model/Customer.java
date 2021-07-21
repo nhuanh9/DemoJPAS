@@ -2,16 +2,16 @@ package com.codegym.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "customers")
+@Entity // đánh dấu đây là Entity => hibernate sẽ tạo bảng trong CSDL
+@Table(name = "customers") // tên mặc định là customer => @table để cài đặt lại thuộc tính của 1 bảng vd: đổi tên thành customers
 public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // đánh dấu đây là thuộc tính id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // đánh dấu thuộc tính này tự tăng
     private Long id;
     private String firstName;
     private String lastName;
-    @ManyToOne
-    @JoinColumn(name = "province_id")
+    @ManyToOne // đánh dấu mối quan hệ n-1
+    @JoinColumn(name = "province_id") // đặt tên cho trường khoá ngoại là province_id
     private Province province;
 
 

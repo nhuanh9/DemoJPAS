@@ -16,12 +16,14 @@ import java.util.Optional;
 @Controller
 public class CustomerController {
 
+    // gọi ra service đã tiên
     @Autowired
     private ICustomerService customerService;
 
     @Autowired
     private IProvinceService provinceService;
 
+    // khai báo một biến mà sẽ dùng ở nhiều view, mỗi khi view gọi đến "provinces" dữ liệu sẽ tự đổ ra
     @ModelAttribute("provinces")
     public Iterable<Province> provinces(){
         return provinceService.findAll();
@@ -55,7 +57,7 @@ public class CustomerController {
     @GetMapping("/edit-customer/{id}")
     public ModelAndView showEditForm(@PathVariable Long id) {
         Optional<Customer> customer = customerService.findById(id);
-        if (customer.isPresent()) {
+        if (customer.isPresent()) { // kiểm tra xem dữ liệu có null không
             ModelAndView modelAndView = new ModelAndView("/customer/edit");
             modelAndView.addObject("customer", customer.get());
             return modelAndView;
