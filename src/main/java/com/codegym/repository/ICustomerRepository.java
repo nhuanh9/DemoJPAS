@@ -2,6 +2,7 @@ package com.codegym.repository;
 
 import com.codegym.model.Customer;
 import com.codegym.model.Province;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,11 @@ public interface ICustomerRepository extends PagingAndSortingRepository<Customer
     Iterable<Customer> findAllByProvince(Province province);
     // Spring Data JPA còn hỗ trợ thêm tự truy vấn đến cơ sở dữ liệu theo tên
     // như tên tương đương với câu truy vấn: select * from customer where province_id = ?
+
+    @Query("select c from Customer c where c.firstName = :firstName") // viết theo HQL
+    Iterable<Customer> sdhashdjashjdk(String firstName);
+
+    @Query(value = "select * from customers order by firstName", nativeQuery = true) // viết theo csdl tương ứng
+    Iterable<Customer> findAllOđấhjdashudrderByFN();
+
 }

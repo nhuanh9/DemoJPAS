@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IProvinceRepository extends PagingAndSortingRepository<Province, Long> {
+    Iterable<Province> findAllByName(String name);
+    Iterable<Province> findAllByNameOrderByName(String name);
+
 }
