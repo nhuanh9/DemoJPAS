@@ -14,6 +14,5 @@ public interface ICustomerRepository extends PagingAndSortingRepository<Customer
     Iterable<Customer> findAllByProvince(Province province);
     // Spring Data JPA còn hỗ trợ thêm tự truy vấn đến cơ sở dữ liệu theo tên
     // như tên tương đương với câu truy vấn: select * from customer where province_id = ?
-
-
 }
+

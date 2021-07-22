@@ -10,10 +10,10 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
+
     @ManyToOne // đánh dấu mối quan hệ n-1
     @JoinColumn(name = "province_id") // đặt tên cho trường khoá ngoại là province_id
     private Province province;
-
 
     public Customer() {
     }

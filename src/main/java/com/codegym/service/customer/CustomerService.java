@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service //// đánh dấu @Service tự động tiêm interface này vào Spring Container quản lý
+@Service // đánh dấu @Service tự động tiêm interface này vào Spring Container quản lý
 public class CustomerService implements ICustomerService {
     @Autowired
     // gọi repository tương ứng ra từ Spring Container, như mọi người thấy, các phương thức được repo cung cấp sẵn
@@ -17,6 +17,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Iterable<Customer> findAll() {
+
         return customerRepository.findAll();
     } // iterable là lớp cha của các collection trong java
 

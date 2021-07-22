@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class DateConverter implements Converter<String, LocalDate> {
     @Override
     public LocalDate convert(String source) { //Conversion
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String date = "10/04/1999";
         LocalDate localDate = LocalDate.parse(date, formatter);
         return localDate;
